@@ -64,13 +64,15 @@ class PostscriptError(RuntimeError):
 # Inline the BWIPP code rather than using the run operator to execute
 # it because the EpsImagePlugin runs Ghostscript with the SAFER flag,
 # which disables file operations in the PS code.
-def _get_bwipp():
-    with open(BWIPP_PATH) as f:
+def _read_file(file_path):
+    with open(file_path) as f:
         return f.read()
+
+BWIPP = _read_file(BWIPP_PATH)
 
 
 def _get_bbox(code):
-    full_code = BBOX_TEMPLATE.format(bwipp=_get_bwipp(), code=code)
+    full_code = BBOX_TEMPLATE.format(bwipp=BWIPP, code=code)
     gs_process = subprocess.Popen(
         BBOX_COMMAND,
         universal_newlines=True,
@@ -105,7 +107,7 @@ def _format_code(barcode_type, data, options):
 def generate_barcode(barcode_type, data, options):
     code = _format_code(barcode_type, data, options)
     bbox_lines = _get_bbox(code)
-    full_code = EPS_TEMPLATE.format(bbox=bbox_lines, bwipp=_get_bwipp(), code=code)
+    full_code = EPS_TEMPLATE.format(bbox=bbox_lines, bwipp=BWIPP, code=code)
     return EpsImageFile(io.BytesIO(full_code.encode('utf8')))
 
 
