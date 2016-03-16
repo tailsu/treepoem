@@ -77,10 +77,10 @@ def _get_bbox(code):
         BBOX_COMMAND,
         universal_newlines=True,
         stdin=subprocess.PIPE,
-        stdout=subprocess.DEVNULL,
+        stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
-    _, err_output = gs_process.communicate(full_code, timeout=2)
+    _, err_output = gs_process.communicate(full_code)
     err_output = err_output.strip()
     # Unfortunately the error-handling in the postscript means that
     # returncode is 0 even if there was an error, but this gives
