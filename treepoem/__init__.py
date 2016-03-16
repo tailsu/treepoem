@@ -96,10 +96,21 @@ def _encode(data):
     return codecs.encode(data.encode('utf8'), 'hex').decode('ascii')
 
 
+def _format_options(options):
+    items = []
+    for name, value in options.items():
+        if isinstance(value, bool):
+            if value:
+                items.append(name)
+        else:
+            items.append('{}={}'.format(name, value))
+    return ' '.join(items)
+
+
 def _format_code(barcode_type, data, options):
     return '<{data}> <{options}> <{barcode_type}> cvn'.format(
         data=_encode(data),
-        options=_encode(options),
+        options=_encode(_format_options(options)),
         barcode_type=_encode(barcode_type),
     )
 
@@ -111,6 +122,5 @@ def generate_barcode(barcode_type, data, options):
     return EpsImageFile(io.BytesIO(full_code.encode('utf8')))
 
 
-
-# image = generate_barcode('qrcode', "This is ( xtian's barcode yay yay yay yay yay", 'version=10 eclevel=Q something')
-# image.save('output.png')
+#image = generate_barcode('qrcode', "This is ( xtian's barcode yay yay yay yay yay", dict(version=10, eclevel='Q', something=True))
+#image.save('output.png')
