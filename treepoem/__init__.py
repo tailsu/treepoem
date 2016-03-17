@@ -57,7 +57,7 @@ EPS_TEMPLATE = """\
 BBOX_COMMAND = ['/usr/bin/gs', '-sDEVICE=bbox', '-dBATCH', '-dSAFER', '-']
 
 
-class PostscriptError(RuntimeError):
+class TreepoemError(RuntimeError):
     pass
 
 
@@ -88,7 +88,7 @@ def _get_bbox(code):
     if gs_process.returncode != 0 or 'BWIPP ERROR:' in err_output:
         if err_output.startswith('BWIPP ERROR: '):
             err_output = err_output.replace('BWIPP ERROR: ', '', 1)
-        raise PostscriptError(err_output)
+        raise TreepoemError(err_output)
     return err_output
 
 
