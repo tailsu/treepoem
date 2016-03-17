@@ -54,7 +54,7 @@ EPS_TEMPLATE = """\
 
 """ + BASE_PS
 
-BBOX_COMMAND = ['/usr/bin/gs', '-sDEVICE=bbox', '-dBATCH', '-dSAFER', '-']
+BBOX_COMMAND = ['gs', '-sDEVICE=bbox', '-dBATCH', '-dSAFER', '-']
 
 
 class PostscriptError(RuntimeError):
