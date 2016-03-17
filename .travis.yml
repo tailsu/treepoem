@@ -1,10 +1,10 @@
 langauge: python
-python:
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-sudo: required
-install: "sudo pip install -r requirements.txt"
-script: py.test
+python: 3.5
+env:
+  - TOX_ENV=py27
+  - TOX_ENV=py33
+  - TOX_ENV=py34
+  - TOX_ENV=py35
+  - TOX_ENV=lint
+install: pip install tox
+script: tox -e $TOX_ENV
