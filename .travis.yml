@@ -5,6 +5,6 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-
-install: "pip install --user -r requirements.txt"
+sudo: required
+install: "sudo pip install -r requirements.txt"
 script: py.test
