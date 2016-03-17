@@ -46,7 +46,7 @@ setup(
     },
     include_package_data=True,
     install_requires=requirements,
-    license="AGPLv3+",
+    license="AGPLv3+",  # to be determined
     zip_safe=False,
     keywords='barcode bwipp ghostscript',
     classifiers=[
