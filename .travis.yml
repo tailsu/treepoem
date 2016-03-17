@@ -1,4 +1,6 @@
 langauge: python
+notifications:
+  email: false
 python: 3.5
 env:
   - TOX_ENV=py27
