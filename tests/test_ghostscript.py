@@ -7,6 +7,7 @@ class GhostscriptTest(unittest.TestCase):
     def test_installed(self):
         process = subprocess.Popen(
             ['gs', '--version'],
+            universal_newlines=True,
             stdin=None,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -14,5 +15,5 @@ class GhostscriptTest(unittest.TestCase):
         stdout, stderr = process.communicate()
 
         self.assertEqual(process.returncode, 0)
-        self.assertEqual(str(stderr), "")
-        self.assertRegexpMatches(str(stdout), r'9\.\d\d')
+        self.assertEqual(stderr, "")
+        self.assertRegexpMatches(stdout, r'9\.\d\d')
