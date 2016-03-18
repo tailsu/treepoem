@@ -1,13 +1,13 @@
-langauge: python
 notifications:
   email: false
-python: 3.5
-env:
-  - TOX_ENV=py27
-  - TOX_ENV=py33
-  - TOX_ENV=py34
-  - TOX_ENV=py35
-  - TOX_ENV=lint
-sudo: required
-install: sudo pip install tox
-script: tox -e $TOX_ENV
+
+sudo: false
+
+langauge: python
+python: '3.5'
+
+install:
+  - pip install tox
+
+script:
+  - tox -e $TOX_ENV
