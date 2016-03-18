@@ -14,5 +14,5 @@ class GhostscriptTest(unittest.TestCase):
         stdout, stderr = process.communicate()
 
         self.assertEqual(process.returncode, 0)
-        self.assertEqual(stderr, "")
-        self.assertRegexpMatches(stdout, r'9\.\d\d')
+        self.assertEqual(str(stderr), "")
+        self.assertRegexpMatches(str(stdout), r'9\.\d\d')
