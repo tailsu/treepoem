@@ -3,10 +3,11 @@ notifications:
 
 sudo: false
 
-langauge: python
+language: python
 python: '3.5'
 
 install:
   - pip install tox
+  - gem install travis
 script:
-  - tox -e $TOX_ENV
+  - tox
