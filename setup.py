@@ -46,13 +46,13 @@ setup(
     },
     include_package_data=True,
     install_requires=requirements,
-    license="AGPLv3+",  # to be determined
+    license="MIT",
     zip_safe=False,
     keywords='barcode bwipp ghostscript',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
+        'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.7',
