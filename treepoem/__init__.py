@@ -8,6 +8,8 @@ import subprocess
 
 from PIL.EpsImagePlugin import EpsImageFile
 
+__version__ = "0.0.1"
+
 BASE_DIR = os.path.normpath(os.path.abspath(os.path.dirname(__file__)))
 BWIPP_PATH = os.path.join(BASE_DIR, 'postscriptbarcode', 'barcode.ps')
 
@@ -122,5 +124,9 @@ def generate_barcode(barcode_type, data, options):
     return EpsImageFile(io.BytesIO(full_code.encode('utf8')))
 
 
-#image = generate_barcode('qrcode', "This is ( xtian's barcode yay yay yay yay yay", dict(version=10, eclevel='Q', something=True))
-#image.save('output.png')
+# image = generate_barcode(
+#     'qrcode',
+#     "This is ( xtian's barcode yay yay yay yay yay",
+#     dict(version=10, eclevel='Q', something=True)
+# )
+# image.save('output.png')
