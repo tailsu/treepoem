@@ -124,5 +124,5 @@ def generate_barcode(barcode_type, data, options):
     return EpsImageFile(io.BytesIO(full_code.encode('utf8')))
 
 
-#image = generate_barcode('qrcode', "This is ( xtian's barcode yay yay yay yay yay", dict(version=10, eclevel='Q', something=True))
-#image.save('output.png')
+# image = generate_barcode('qrcode', "This is ( xtian's barcode yay yay yay yay yay", dict(version=10, eclevel='Q', something=True))
+# image.save('output.png')
