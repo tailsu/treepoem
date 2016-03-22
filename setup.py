@@ -33,7 +33,7 @@ test_requirements = [
 setup(
     name='treepoem',
     version=version,
-    description="Barcode rendering wrapper around supporting QRcode, Aztec, PDF417, I25, Code128, Code39 and many more types.",
+    description="Barcode rendering for Python 2 and 3 supporting QRcode, Aztec, PDF417, I25, Code128, Code39 and many more types.",
     long_description=readme + '\n\n' + history,
     author="Christian Muirhead",
     author_email='xtian@babbageclunk.com',
