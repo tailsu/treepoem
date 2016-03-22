@@ -96,7 +96,7 @@ def _get_bbox(code):
 
 
 def _encode(data):
-    return codecs.encode(data.encode('utf8'), 'hex').decode('ascii')
+    return codecs.encode(data.encode('utf8'), 'hex_codec').decode('ascii')
 
 
 def _format_options(options):
