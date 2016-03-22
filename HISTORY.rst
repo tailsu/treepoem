@@ -11,3 +11,4 @@ INPROGRESS
 * Add basic ``setup.py``.
 * Setup Travis CI build.
 * Setup Tox
+* Test that ``ghostscript`` is installed.
