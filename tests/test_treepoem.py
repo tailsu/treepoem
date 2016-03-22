@@ -29,16 +29,14 @@ class TreepoemTestCase(unittest.TestCase):
                 barcode_type=barcode_type,
             )
 
-            try:
-                expected = Image.open(fixture_path)
-            except: raise
-            else:
+            # Trying to prevent a `ResourceWarning`.
+            # Bug: https://github.com/python-pillow/Pillow/issues/1144
+            # Workaround: https://github.com/python-pillow/Pillow/issues/835
+            with open(fixture_path) as fixture:
+                expected = Image.open(fixture)
                 self.assertIsNone(
                     ImageChops.difference(actual, expected).getbbox(),
                     msg="{barcode_type} barcode did not match.".format(
                         barcode_type=barcode_type
                     ),
                 )
-            finally:
-                actual.close()
-                expected.close()
