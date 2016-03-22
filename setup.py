@@ -33,7 +33,7 @@ test_requirements = [
 setup(
     name='treepoem',
     version=version,
-    description="A very simple Python wrapper around BWIPP.",
+    description="Barcode rendering wrapper around supporting QRcode, Aztec, PDF417, I25, Code128, Code39 and many more types.",
     long_description=readme + '\n\n' + history,
     author="Christian Muirhead",
     author_email='xtian@babbageclunk.com',
@@ -48,7 +48,7 @@ setup(
     install_requires=requirements,
     license="MIT",
     zip_safe=False,
-    keywords='barcode bwipp ghostscript',
+    keywords='barcode bwipp postscript ghostscript qr qrcode aztec azteccode pdf417 interleaved2of5 i25 code128 code39',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
