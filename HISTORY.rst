@@ -12,3 +12,4 @@ INPROGRESS
 * Setup Travis CI build.
 * Setup Tox
 * Test that ``ghostscript`` is installed.
+* Test some of the used barcode types.

@@ -8,6 +8,7 @@ import subprocess
 
 from PIL.EpsImagePlugin import EpsImageFile
 
+__all__ = ['generate_barcode', 'TreepoemError']
 __version__ = "0.0.1"
 
 BASE_DIR = os.path.normpath(os.path.abspath(os.path.dirname(__file__)))
@@ -122,11 +123,3 @@ def generate_barcode(barcode_type, data, options):
     bbox_lines = _get_bbox(code)
     full_code = EPS_TEMPLATE.format(bbox=bbox_lines, bwipp=BWIPP, code=code)
     return EpsImageFile(io.BytesIO(full_code.encode('utf8')))
-
-
-# image = generate_barcode(
-#     'qrcode',
-#     "This is ( xtian's barcode yay yay yay yay yay",
-#     dict(version=10, eclevel='Q', something=True)
-# )
-# image.save('output.png')
