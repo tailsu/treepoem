@@ -40,3 +40,5 @@ class TreepoemTestCase(unittest.TestCase):
                         barcode_type=barcode_type
                     ),
                 )
+
+            actual.close()
