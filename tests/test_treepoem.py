@@ -32,7 +32,7 @@ class TreepoemTestCase(unittest.TestCase):
             # Trying to prevent a `ResourceWarning`.
             # Bug: https://github.com/python-pillow/Pillow/issues/1144
             # Workaround: https://github.com/python-pillow/Pillow/issues/835
-            with open(fixture_path) as fixture:
+            with open(fixture_path, 'rb') as fixture:
                 expected = Image.open(fixture)
                 self.assertIsNone(
                     ImageChops.difference(actual, expected).getbbox(),
