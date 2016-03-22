@@ -28,11 +28,11 @@ class TreepoemTestCase(unittest.TestCase):
                 dirname=path.dirname(__file__),
                 barcode_type=barcode_type,
             )
-            expected = Image.open(fixture_path)
 
-            self.assertIsNone(
-                ImageChops.difference(actual, expected).getbbox(),
-                msg="{barcode_type} barcode did not match.".format(
-                    barcode_type=barcode_type
-                ),
-            )
+            with Image.open(fixture_path) as expected:
+                self.assertIsNone(
+                    ImageChops.difference(actual, expected).getbbox(),
+                    msg="{barcode_type} barcode did not match.".format(
+                        barcode_type=barcode_type
+                    ),
+                )
