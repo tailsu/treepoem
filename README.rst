@@ -40,7 +40,7 @@ Example
    >>> import treepoem
    >>> image = treepoem.generate_barcode(
    ...     'qrcode',  # One of the BWIPP supported codes.
-   ...     'data inside barcode',
+   ...     'barcode payload',
    ...     {},
    ... )
    >>> image.save('barcode.png')  # This is an instance of `PIL.EpsImagePlugin.EpsImageFile`
