@@ -10,8 +10,8 @@ Treepoem
 
 
 A cleverly named, but very simple python barcode renderer wrapping the
-BWIPP_ library and ``ghostscript`` command line. It is also Python 2.7
-and Python 3.3+ compatible.
+BWIPP_ library and ``ghostscript`` command line tool. It is also
+Python 2.7 and Python 3.3+ compatible.
 
 Supported barcode types
 -----------------------
