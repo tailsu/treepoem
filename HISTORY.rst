@@ -3,7 +3,7 @@
 History
 -------
 
-INPROGRESS
+1.0.0
 ------------------
 
 * Use ``$PATH`` to find ``gs`` binary.
