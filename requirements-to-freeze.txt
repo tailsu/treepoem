@@ -1,6 +1,7 @@
 # See http://www.kennethreitz.org/essays/a-better-pip-workflow
 docutils
 flake8
+nose-parameterized
 Pillow
 Pygments
 pytest
