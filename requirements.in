@@ -1,6 +1,6 @@
 docutils
 flake8
-nose-parameterized
+multilint
 Pillow
 Pygments
 pytest
