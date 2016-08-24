@@ -1,12 +1,12 @@
 from os import path
 from PIL import Image, ImageChops
 
-from nose_parameterized import parameterized
+import pytest
 
 import treepoem
 
 
-@parameterized([
+@pytest.mark.parametrize('barcode_type,barcode_data', [
     ('qrcode', "This is qrcode barcode."),
     ('azteccode', "This is azteccode barcode."),
     ('pdf417', "This is pdf417 barcode."),

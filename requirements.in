@@ -1,0 +1,6 @@
+docutils
+flake8
+nose-parameterized
+Pillow
+Pygments
+pytest
