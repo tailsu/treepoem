@@ -13,6 +13,31 @@ A cleverly named, but very simple python barcode renderer wrapping the
 BWIPP_ library and ``ghostscript`` command line tool. It is also
 Python 2.7 and Python 3.3+ compatible.
 
+Install
+-------
+
+Install from **pip**:
+
+.. code-block:: sh
+
+    pip install treepoem
+
+You'll also need Ghostscript installed. On Ubuntu/Debian this can be installed
+with:
+
+.. code-block:: sh
+
+    apt-get install ghostscript
+
+On Mac OS X use:
+
+.. code-block:: sh
+
+    brew install ghostscript
+
+Otherwise refer to your distribution's package manager, though it's likely to
+be called ``ghostscript`` too.
+
 Supported barcode types
 -----------------------
 
@@ -39,9 +64,9 @@ Example
 
    >>> import treepoem
    >>> image = treepoem.generate_barcode(
-   ...     'qrcode',  # One of the BWIPP supported codes.
-   ...     'barcode payload',
-   ...     {},
+   ...     barcode_type='qrcode',  # One of the BWIPP supported codes.
+   ...     data='barcode payload',
+   ...     options={},
    ... )
    >>> image.save('barcode.png')  # This is an instance of `PIL.EpsImagePlugin.EpsImageFile`
 
