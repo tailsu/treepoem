@@ -7,7 +7,7 @@
 configparser==3.5.0       # via flake8
 docutils==0.12
 enum34==1.1.6             # via flake8
-flake8==3.2.0
+flake8==3.2.1
 mccabe==0.5.2             # via flake8
 multilint==2.0.1
 Pillow==3.4.2
