@@ -8,7 +8,7 @@ configparser==3.5.0       # via flake8
 docutils==0.13.1
 enum34==1.1.6             # via flake8
 flake8==3.2.1
-mccabe==0.5.2             # via flake8
+mccabe==0.5.3             # via flake8
 multilint==2.0.2
 Pillow==3.4.2
 py==1.4.31                # via pytest
