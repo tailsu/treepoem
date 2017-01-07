@@ -10,7 +10,7 @@ enum34==1.1.6             # via flake8
 flake8==3.2.1
 mccabe==0.5.3             # via flake8
 multilint==2.0.2
-olefile==0.43             # via pillow
+olefile==0.44             # via pillow
 Pillow==4.0.0
 py==1.4.32                # via pytest
 pycodestyle==2.2.0        # via flake8
