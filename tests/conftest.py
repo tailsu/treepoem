@@ -5,8 +5,10 @@ import re
 import subprocess
 import sys
 
+from treepoem import GS_COMMAND
 
-GHOSTSCRIPT_VERSION = subprocess.check_output(['gs', '--version']).decode('utf-8')
+
+GHOSTSCRIPT_VERSION = subprocess.check_output([GS_COMMAND, '--version']).decode('utf-8')
 if not re.match(r'9\.\d\d', GHOSTSCRIPT_VERSION):
     print(
         "Ghostscript must be version 9.X, have {}".format(GHOSTSCRIPT_VERSION)

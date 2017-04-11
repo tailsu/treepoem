@@ -4,6 +4,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import codecs
 import io
 import os
+import sys
 import subprocess
 
 from PIL.EpsImagePlugin import EpsImageFile
@@ -57,7 +58,15 @@ EPS_TEMPLATE = """\
 
 """ + BASE_PS
 
-BBOX_COMMAND = ['gs', '-sDEVICE=bbox', '-dBATCH', '-dSAFER', '-']
+
+GS_COMMAND = 'gs'
+
+if sys.platform.startswith('win'):
+    from PIL.EpsImagePlugin import gs_windows_binary
+    GS_COMMAND = gs_windows_binary
+
+
+BBOX_COMMAND = [GS_COMMAND, '-sDEVICE=bbox', '-dBATCH', '-dSAFER', '-']
 
 
 class TreepoemError(RuntimeError):
