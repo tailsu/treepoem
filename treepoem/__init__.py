@@ -7,7 +7,7 @@ import os
 import sys
 import subprocess
 
-from PIL.EpsImagePlugin import EpsImageFile
+from PIL import EpsImagePlugin
 
 __all__ = ['generate_barcode', 'TreepoemError']
 __version__ = "1.0.1"
@@ -59,16 +59,6 @@ EPS_TEMPLATE = """\
 """ + BASE_PS
 
 
-GS_COMMAND = 'gs'
-
-if sys.platform.startswith('win'):
-    from PIL.EpsImagePlugin import gs_windows_binary
-    GS_COMMAND = gs_windows_binary
-
-
-BBOX_COMMAND = [GS_COMMAND, '-sDEVICE=bbox', '-dBATCH', '-dSAFER', '-']
-
-
 class TreepoemError(RuntimeError):
     pass
 
@@ -86,12 +76,9 @@ BWIPP = _read_file(BWIPP_PATH)
 
 def _get_bbox(code):
     full_code = BBOX_TEMPLATE.format(bwipp=BWIPP, code=code)
-    if not GS_COMMAND:
-        raise TreepoemError(
-            'Cannot determine path to ghostscript, is it installed?'
-        )
+    ghostscript = _get_ghostscript_binary()
     gs_process = subprocess.Popen(
-        BBOX_COMMAND,
+        [ghostscript,  '-sDEVICE=bbox', '-dBATCH', '-dSAFER', '-'],
         universal_newlines=True,
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
@@ -107,6 +94,19 @@ def _get_bbox(code):
             err_output = err_output.replace('BWIPP ERROR: ', '', 1)
         raise TreepoemError(err_output)
     return err_output
+
+
+def _get_ghostscript_binary():
+    binary = 'gs'
+
+    if sys.platform.startswith('win'):
+        binary = EpsImagePlugin.gs_windows_binary
+        if not binary:
+            raise TreepoemError(
+                'Cannot determine path to ghostscript, is it installed?'
+            )
+
+    return binary
 
 
 def _encode(data):
@@ -136,4 +136,4 @@ def generate_barcode(barcode_type, data, options):
     code = _format_code(barcode_type, data, options)
     bbox_lines = _get_bbox(code)
     full_code = EPS_TEMPLATE.format(bbox=bbox_lines, bwipp=BWIPP, code=code)
-    return EpsImageFile(io.BytesIO(full_code.encode('utf8')))
+    return EpsImagePlugin.EpsImageFile(io.BytesIO(full_code.encode('utf8')))

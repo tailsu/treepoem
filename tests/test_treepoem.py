@@ -1,5 +1,6 @@
+import sys
 from os import path
-from PIL import Image, ImageChops
+from PIL import EpsImagePlugin, Image, ImageChops
 
 import pytest
 
@@ -35,3 +36,33 @@ def test_barcode(barcode_type, barcode_data):
         assert bbox is None
 
     actual.close()
+
+
+@pytest.fixture
+def pretend_windows():
+    real_platform = sys.platform
+    try:
+        sys.platform = 'win32'
+        yield
+    finally:
+        sys.platform = real_platform
+
+
+@pytest.fixture
+def pretend_have_windows_ghostscript():
+    real_bin = EpsImagePlugin.gs_windows_binary
+    try:
+        EpsImagePlugin.gs_windows_binary = 'gswin32c'
+        yield
+    finally:
+        EpsImagePlugin.gs_windows_binary = real_bin
+
+
+def test_get_ghostscript_binary_windows(pretend_windows, pretend_have_windows_ghostscript):
+    assert treepoem._get_ghostscript_binary() == 'gswin32c'
+
+
+def test_get_ghostscript_binary_windows_missing(pretend_windows):
+    with pytest.raises(treepoem.TreepoemError) as excinfo:
+        treepoem._get_ghostscript_binary()
+    assert 'Cannot determine path to ghostscript' in str(excinfo.value)
