@@ -86,6 +86,10 @@ BWIPP = _read_file(BWIPP_PATH)
 
 def _get_bbox(code):
     full_code = BBOX_TEMPLATE.format(bwipp=BWIPP, code=code)
+    if not GS_COMMAND:
+        raise TreepoemError(
+            'Cannot determine path to ghostscript, is it installed?'
+        )
     gs_process = subprocess.Popen(
         BBOX_COMMAND,
         universal_newlines=True,
