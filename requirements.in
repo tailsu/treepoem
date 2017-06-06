@@ -1,5 +1,6 @@
 docutils
 flake8
+isort
 multilint
 Pillow
 Pygments

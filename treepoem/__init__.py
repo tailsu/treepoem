@@ -4,8 +4,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import codecs
 import io
 import os
-import sys
 import subprocess
+import sys
 
 from PIL import EpsImagePlugin
 

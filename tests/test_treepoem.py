@@ -1,8 +1,11 @@
+# -*- coding:utf-8 -*-
+from __future__ import absolute_import, division, print_function, unicode_literals
+
 import sys
 from os import path
-from PIL import EpsImagePlugin, Image, ImageChops
 
 import pytest
+from PIL import EpsImagePlugin, Image, ImageChops
 
 import treepoem
 
