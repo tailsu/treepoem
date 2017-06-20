@@ -5,6 +5,9 @@ History
 
 .. Insert new release notes below this line
 
+* Add ``treepoem.barcode_types``, a set of all the names of supported barcode
+  types, and error if asked to generate a barcode of an unknown type.
+
 1.1.0 (2017-04-13)
 ------------------
 
