@@ -10,11 +10,12 @@ Treepoem
 
 
 A cleverly named, but very simple python barcode renderer wrapping the
-BWIPP_ library and ``ghostscript`` command line tool. It is also
-Python 2.7 and Python 3.3+ compatible.
+BWIPP_ library and ``ghostscript`` command line tool, Python 2.7 and 3.3+
+compatible.
 
-Install
--------
+------------
+Installation
+------------
 
 Install from **pip**:
 
@@ -38,11 +39,46 @@ On Mac OS X use:
 Otherwise refer to your distribution's package manager, though it's likely to
 be called ``ghostscript`` too.
 
-Supported barcode types
------------------------
+---
+API
+---
 
-It should support more or less everything that is supported by BWIPP_,
-but these types are specifically verified in the tests:
+``generate_barcode(barcode_type, data, options)``
+-------------------------------------------------
+
+Generates a barcode and returns it as a PIL image file object (specifically, a
+``PIL.EpsImagePlugin.EpsImageFile``).
+
+``barcode_type`` is the name of the barcode type to generate (see below).
+
+``data`` is the string of data to embed in the barcode - the amount that can be
+embedded varies by type.
+
+``options`` is a dictionary of strings-to-strings of extra options to be passed
+to BWIPP_, as per its docs.
+
+For example, this generates a QR code image, and saves it to a file using
+standard PIL ``Image.save()``:
+
+.. code-block:: python
+
+   >>> import treepoem
+   >>> image = treepoem.generate_barcode(
+   ...     barcode_type='qrcode',  # One of the BWIPP supported codes.
+   ...     data='barcode payload',
+   ...     options={},
+   ... )
+   >>> image.save('barcode.png')
+
+
+``barcode_types``
+-----------------
+
+This is a set of the ~100 names of the barcode types that the vendored version
+of BWIPP_ supports. If you're looking for whether a specific type is supported,
+check here.
+
+The library is tested with these specific, common types:
 
 * ``qrcode`` - `QR Code`_
 
@@ -56,29 +92,11 @@ but these types are specifically verified in the tests:
 
 * ``code39`` - `Code 39`_
 
-The set of supported barcode types is available as a set at
-``treepoem.barcode_types``.
-
-Example
--------
-
-.. code-block:: python
-
-   >>> import treepoem
-   >>> image = treepoem.generate_barcode(
-   ...     barcode_type='qrcode',  # One of the BWIPP supported codes.
-   ...     data='barcode payload',
-   ...     options={},
-   ... )
-   >>> image.save('barcode.png')  # This is an instance of `PIL.EpsImagePlugin.EpsImageFile`
-
-A file ``barcode.png`` should appear in your current directory with a QR code.
-
-
+--------------------------------
 What's so clever about the name?
 --------------------------------
 
-Barcode - Treepoem.
+Barcode.
 
 Bark ode.
 
