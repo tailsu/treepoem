@@ -6,6 +6,13 @@ History
 
 .. Insert new release notes below this line
 
+* Upgrade BWIPP from 2015-11-24 to 2017-06-20. This has a number of bug fixes,
+  and supports more barcode types. It has also changed the pixel-for-pixel
+  output of some formats, although they still encode the same information -
+  notably QR codes, which are tested in ``treepoem``\'s test suite. You can
+  read its changelog in the `vendored copy in the treepoem repo
+  <https://github.com/YPlan/treepoem/blob/master/treepoem/postscriptbarcode/CHANGES>`_.
+
 1.2.0 (2017-06-21)
 ------------------
 

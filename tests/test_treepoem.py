@@ -30,6 +30,9 @@ def test_barcode(barcode_type, barcode_data):
         barcode_type=barcode_type,
     )
 
+    # Uncomment to rebuild fixtures:
+    # actual.save(fixture_path)
+
     # Trying to prevent a `ResourceWarning`.
     # Bug: https://github.com/python-pillow/Pillow/issues/1144
     # Workaround: https://github.com/python-pillow/Pillow/issues/835
