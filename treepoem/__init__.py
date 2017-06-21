@@ -12,7 +12,7 @@ from PIL import EpsImagePlugin
 from .data import barcode_types
 
 __all__ = ['generate_barcode', 'TreepoemError', 'barcode_types']
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 BASE_DIR = os.path.normpath(os.path.abspath(os.path.dirname(__file__)))
 BWIPP_PATH = os.path.join(BASE_DIR, 'postscriptbarcode', 'barcode.ps')
