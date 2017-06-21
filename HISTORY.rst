@@ -6,6 +6,9 @@ History
 
 .. Insert new release notes below this line
 
+1.3.0 (2017-06-21)
+------------------
+
 * Upgrade BWIPP from 2015-11-24 to 2017-06-20. This has a number of bug fixes,
   and supports more barcode types. It has also changed the pixel-for-pixel
   output of some formats, although they still encode the same information -
