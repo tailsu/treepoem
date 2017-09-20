@@ -10,7 +10,7 @@ enum34==1.1.6             # via flake8
 flake8==3.4.1
 isort==4.2.15
 mccabe==0.6.1             # via flake8
-multilint==2.1.0
+multilint==2.2.0
 olefile==0.44             # via pillow
 pillow==4.2.1
 py==1.4.34                # via pytest
