@@ -10,7 +10,7 @@ History
 ------------------
 
 * Upgrade BWIPP from 2017-06-20 to 2017-07-10. This has a few bug fixes. You
-  can read its changelog in the vendored copy in the treepoem repo
+  can read its changelog in the vendored copy in the `treepoem repo
   <https://github.com/YPlan/treepoem/blob/master/treepoem/postscriptbarcode/CHANGES>`__.
 
 1.3.0 (2017-06-21)
