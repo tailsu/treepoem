@@ -105,7 +105,7 @@ def _get_ghostscript_binary():
         binary = EpsImagePlugin.gs_windows_binary
         if not binary:
             raise TreepoemError(
-                'Cannot determine path to ghostscript, is it installed?'
+                'Cannot determine path to ghostscript, is it installed?',
             )
 
     return binary

@@ -21,7 +21,7 @@ import treepoem
 def test_barcode(barcode_type, barcode_data):
     actual = treepoem.generate_barcode(
         barcode_type,
-        barcode_data
+        barcode_data,
     )
 
     fixture_path = "{dirname}/fixtures/{barcode_type}.png".format(
