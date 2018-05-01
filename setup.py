@@ -37,6 +37,7 @@ setup(
     package_dir={
         'treepoem': 'treepoem',
     },
+    entry_points={'console_scripts': ['treepoem=treepoem.__main__:main']},
     include_package_data=True,
     install_requires=[
         'Pillow',

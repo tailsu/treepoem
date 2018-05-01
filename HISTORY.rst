@@ -7,6 +7,7 @@ History
 .. Insert new release notes below this line
 
 * Make the ``options`` argument to ``generate_barcode`` optional
+* Add a CLI ``treepoem``
 
 1.3.2 (2017-10-22)
 ------------------
