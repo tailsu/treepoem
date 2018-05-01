@@ -6,6 +6,9 @@ History
 
 .. Insert new release notes below this line
 
+1.4.1 (2018-05-01)
+------------------
+
 * Fix formatting bug in CLI output.
 
 1.4.0 (2018-05-01)
