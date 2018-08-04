@@ -6,6 +6,7 @@ History
 
 .. Insert new release notes below this line
 
+* Support binary barcode data.
 * Upgrade BWIPP from 2017-10-19 to 2018-05-20. This has a few bug fixes and
   performance improvements. You can read its changelog in the vendored copy in
   the `treepoem repo
