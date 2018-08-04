@@ -6,10 +6,17 @@ History
 
 .. Insert new release notes below this line
 
+2.0.0 (2018-08-04)
+------------------
+
 * Support binary barcode data - if ``bytes`` (``str`` on Python 2) is passed
-  as data, it's not encoded. This has introduced a dependency on ``six``.
+  as data, it's not encoded. This has introduced a dependency on ``six``. This
+  may be backwards incompatible, depending on what type of data you're passing
+  in on Python 2.
 * Make ``treepoem.barcode_types`` a ``dict`` mapping the BWIPP encoder
-  names to a custom type containing a human-readable ``description``.
+  names to a custom type containing a human-readable ``description``. This is
+  backwards incompatible if you're relying on ``barcode_types`` which
+  previously was a ``set`` of the encoder names.
 * Upgrade BWIPP from 2017-10-19 to 2018-05-20. This has a few bug fixes and
   performance improvements. You can read its changelog in the vendored copy in
   the `treepoem repo
