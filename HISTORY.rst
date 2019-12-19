@@ -1,10 +1,9 @@
-.. :changelog:
-
 -------
 History
 -------
 
-.. Insert new release notes below this line
+3.2.0 (2019-12-19)
+------------------
 
 * Upgrade BWIPP from 2019-04-24 to 2019-08-05. This has a few bug fixes and
   performance improvements. You can read its changelog in the vendored copy in
