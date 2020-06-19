@@ -645,6 +645,7 @@ begin
     % Default options
     /barcolor (unset) def
     /backgroundcolor (unset) def
+    /inkspread (0) def
 
     % Apply the renderer options and the user options
     args {def} forall
@@ -652,6 +653,9 @@ begin
 
     /barcolor barcolor cvlit def
     /backgroundcolor backgroundcolor cvlit def
+    /inkspread inkspread cvr def
+
+    /dotscale 1 inkspread sub def
 
     % Set RGB or CMYK color depending on length of given hex string
     /setanycolor {
@@ -684,24 +688,24 @@ begin
         y 2 mod 0 eq {x} {x 0.5 add} ifelse
         32 y sub 0.8661 mul
         moveto
-        0     0.5774 rmoveto
-        -0.5 -0.2887 rlineto
-        0    -0.5774 rlineto
-        0.5  -0.2887 rlineto
-        0.5   0.2887 rlineto
-        0     0.5774 rlineto
-        -0.5  0.2887 rlineto
+        0                     0.5774 dotscale mul rmoveto
+        -0.5 dotscale mul    -0.2887 dotscale mul rlineto
+        0                    -0.5774 dotscale mul rlineto
+        0.5  dotscale mul    -0.2887 dotscale mul rlineto
+        0.5  dotscale mul     0.2887 dotscale mul rlineto
+        0                     0.5774 dotscale mul rlineto
+        -0.5 dotscale mul     0.2887 dotscale mul rlineto
         closepath
     } forall
     fill
 
     % Plot the locator symbol
     newpath 14 13.8576 0.5774 0 360 arc closepath
-    14 13.8576 1.3359 360 0 arcn closepath fill
+            14 13.8576 1.3359 360 0 arcn closepath fill
     newpath 14 13.8576 2.1058 0 360 arc closepath
-    14 13.8576 2.8644 360 0 arcn closepath fill
+            14 13.8576 2.8644 360 0 arcn closepath fill
     newpath 14 13.8576 3.6229 0 360 arc closepath
-    14 13.8576 4.3814 360 0 arcn closepath fill
+            14 13.8576 4.3814 360 0 arcn closepath fill
 
     grestore
 
